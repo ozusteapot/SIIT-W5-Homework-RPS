@@ -23,22 +23,55 @@
     {//defining our array;
     var arr = ["rock", "paper", "scissors"];
     //giving the computer a random variable within the array's scope (0-2);
-    var computer = Math.random()*10;
-    if (computer >= 0 || computer < 3)
-        { computer = Math.trunc(computer);
+    var computer = Math.trunc(Math.random()*10);
+    console.log("Computer test", computer);
+    if (computer >= 0 && computer < 3)
+        {
          console.log("Computer choice: ", '"', arr[computer], '"');}
     else
-        {computer = Math.trunc(computer / 3);
-        console.log("Computer choice: ", '"', arr[computer], '"');}
+    if (computer == 9)
+    {
+        //because 9/3==3 => 3 is outside arr's scope (which is 0,1,2), we will treat 9 as 0;
+        computer = computer%3;
+        console.log("Computer choice: ", '"', arr[computer], '"');
+    }
+    else
+        {   computer = computer / 3;
+            //check if computer is int (1st) or float(2nd);
+            if (computer % 1 == 0)
+            {
+                console.log("Computer choice: ", '"', arr[computer], '"');
+            }
+            else 
+            {   computer=Math.trunc(computer);
+                console.log("Computer choice: ", '"', arr[computer], '"');
+            }
+        }
+     
      //giving the user a random variable, again within the array's scope;       
-     var user = Math.random()*10;
-     if (user >= 0 || user < 3)
-        {user = Math.trunc(user);
+      var user = Math.trunc(Math.random()*10);
+     console.log('user test', user);
+     if (user >= 0 && user < 3)
+        {
         console.log("User choice: ", '"', arr[user], '"');
         }
-     else{
-        Math.trunc((Math.random() * 10) / 3);
+     else
+     if (user == 9)
+     {  user = user%3;
         console.log("User choice: ", '"', arr[user], '"');
+     }
+     else
+     {
+            user = user / 3;
+            //check if user is int (1st) or float(2nd);
+            if (user % 1 == 0)
+            {
+                console.log("User choice: ", '"', arr[user], '"');
+            }
+            else
+            {   user = Math.trunc(user);
+                console.log("User choice: ", '"', arr[user], '"'); 
+            }
         }
     //Now to play the game;
      if (computer === user)
