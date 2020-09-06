@@ -20,11 +20,27 @@
     </p>
     <script>
     function play()
-    {var arr = ["rock", "paper", "scissors"];
-     var computer = Math.trunc((Math.random() * 10) / 3);
-     console.log("Computer choice: ", '"', arr[computer], '"');
-     var user = Math.trunc((Math.random() * 10) / 3);
-     console.log("User choice: ", '"', arr[user], '"');
+    {//defining our array;
+    var arr = ["rock", "paper", "scissors"];
+    //giving the computer a random variable within the array's scope (0-2);
+    var computer = Math.random()*10;
+    if (computer >= 0 || computer < 3)
+        { computer = Math.trunc(computer);
+         console.log("Computer choice: ", '"', arr[computer], '"');}
+    else
+        {computer = Math.trunc(computer / 3);
+        console.log("Computer choice: ", '"', arr[computer], '"');}
+     //giving the user a random variable, again within the array's scope;       
+     var user = Math.random()*10;
+     if (user >= 0 || user < 3)
+        {user = Math.trunc(user);
+        console.log("User choice: ", '"', arr[user], '"');
+        }
+     else{
+        Math.trunc((Math.random() * 10) / 3);
+        console.log("User choice: ", '"', arr[user], '"');
+        }
+    //Now to play the game;
      if (computer === user)
      {console.log("Tie!");}
      else
