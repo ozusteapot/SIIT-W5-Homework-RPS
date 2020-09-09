@@ -36,16 +36,10 @@
         console.log("Computer choice: ", '"', arr[computer], '"');
     }
     else
-        {   computer = computer / 3;
-            //check if computer is int (1st) or float(2nd);
-            if (computer % 1 == 0)
-            {
-                console.log("Computer choice: ", '"', arr[computer], '"');
-            }
-            else 
-            {   computer=Math.trunc(computer);
-                console.log("Computer choice: ", '"', arr[computer], '"');
-            }
+        {   computer = Math.trunc(computer / 3);
+            console.log("Computer choice: ", '"', arr[computer], '"');
+            
+         
         }
      
      //giving the user a random variable, again within the array's scope;       
@@ -62,16 +56,9 @@
      }
      else
      {
-            user = user / 3;
-            //check if user is int (1st) or float(2nd);
-            if (user % 1 == 0)
-            {
-                console.log("User choice: ", '"', arr[user], '"');
-            }
-            else
-            {   user = Math.trunc(user);
-                console.log("User choice: ", '"', arr[user], '"'); 
-            }
+            user = Math.trunc(user / 3);
+            console.log("User choice: ", '"', arr[user], '"'); 
+            
         }
     //Now to play the game;
      if (computer === user)
